@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Search</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script type="text/javascript">
+        console.log({{ all_data | safe}});
+        let datas = {{ all_data | safe}}
+
+        $( function() {
+            $( "#search" ).autocomplete({
+                source: datas,
+                minLength: 1,
+            });
+        });
+    </script>
+
+
+</head>
+<style>
+  .ui-widget{
+      width: 500px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  input[type=text]{
+      border:1px solid gray;
+      border-radius: 5px;
+      height: 60px;
+      width: 400px;
+      text-align: center;
+  }
+  input[type=submit]{
+  border:1px solid gray;
+  border-radius: 5px;
+  height: 60px;
+  width: 400px;
+  text-align: center;
+  }
+</style>
+<body>
+
+<div class="ui-widget">
+  <h2 align="center">Word Search</h2>
+    <br><br><br>
+  <form action= "/search" method= "GET">
+      <input id="search" type="text" placeholder="enter word" name="word" size="25"> <br><br>
+      <input type="submit" value="Search">
+  </form>
+</div>
+
+</body>
+</html>
